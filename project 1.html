@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Form</title>
+
+    <link rel="stylesheet" href="style/style1.css">
+
+    <!-- EmailJS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        (function() {
+            // यहाँ अपना Public Key डालें
+            emailjs.init("4ZoBzu_maVN6cn4xm");
+        })();
+
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // यहाँ अपना Service ID और Template ID डालें
+                emailjs.sendForm("service_4jv484s", "template_63sy8vj", this)
+                    .then(() => {
+                        console.log("SUCCESS!");
+                        alert("Form submitted successfully!");
+                    }, (error) => {
+                        console.log("FAILED...", error);
+                        alert("Error: " + JSON.stringify(error));
+                    });
+            });
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="spot"><a>Biru</a></li>
+            <li class="abc1"><a href="index.html">Home</a></li>
+            <li class="abc2"><a href="index.html#project">Projects</a></li>
+            <li class="abc3"><a href="#">contact</a></li>
+        </ul>
+    </nav>
+
+<div class="form-header">
+  <h2>Get in Touch</h2>
+  <p>I'd love to hear from you — drop a message below!</p>
+</div>
+
+<div class="conform">
+    <form class="contact-form">
+        <label>Name</label>
+        <input type="text" name="name" required>
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your Email">
+        
+        <label for="phone">Phone Number:</label>
+        <input 
+      type="number" 
+      id="phone" 
+      class="phone" 
+        name="phone"
+       pattern="[0-9]{10}" 
+      maxlength="10" 
+      required 
+      placeholder="Enter your 10-digit phone number">
+
+        
+        <label>Message</label>
+        <textarea name="message" required placeholder="write down your Message"></textarea>
+        
+        <input type="submit" value="Send">
+    </form>
+
+    </div>
+
+    <footer class="footer">
+  <p>© 2026 Biru | Crafted with ❤️ using HTML, CSS & JS</p>
+  <p>Follow me on <a href="#">LinkedIn</a> | <a href="https://github.com/yashdashboard" target="_blank">GitHub</a></p>
+</footer>
+
+</body>
+</html>
