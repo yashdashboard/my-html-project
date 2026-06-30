@@ -21,6 +21,7 @@ nav {
     background-color: #0c0606;
     justify-content: end;
     position: fixed;
+    top: 0;
     width: 100%;
     height: 53px;
     display: flex;
